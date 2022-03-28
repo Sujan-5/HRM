@@ -1,6 +1,13 @@
 package com.hrms.Entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "hrm")
 public class EntEmployee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String address;
