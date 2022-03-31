@@ -2,6 +2,7 @@ package com.hrms.Entity;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "hrm")
 public class EntEmployee {
@@ -9,25 +10,24 @@ public class EntEmployee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "ADDRESS")
     private String address;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "SUPERVISOR_NAME")
     private String supervisorname;
 
     public EntEmployee(){
         super();
     }
 
-    @Override
-    public String toString() {
-        return "EntEmployee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", supervisorname='" + supervisorname + '\'' +
-                '}';
-    }
+
 
     public int getId() {
         return id;
@@ -69,4 +69,14 @@ public class EntEmployee {
         this.supervisorname = supervisorname;
     }
 
+    @Override
+    public String toString() {
+        return "EntEmployee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", supervisorname='" + supervisorname + '\'' +
+                '}';
+    }
 }
