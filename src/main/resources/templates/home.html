@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- start navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
     <a class="navbar-brand" href="#">Human Resource Management System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -26,7 +26,7 @@
             <li class="nav-item active"><a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
             </a></li>
-            <li class="nav-item active"><a class="nav-link" href="add">ADD</a></li>
+            <li class="nav-item active"><a class="nav-link" href="add">ADD Employee</a></li>
         </ul>
     </div>
 </nav>
@@ -43,14 +43,14 @@
 
 <div class="container p-5">
     <table class="table table-striped" border="1">
-        <thead class="bg-primary text-white">
+        <thead class="bg-info text-dark">
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Address</th>
             <th scope="col">Email</th>
             <th scope="col">SuperVisor name</th>
-            <th scope="col">Action</th>
+            <th scope="col">E-D</th>
         </tr>
         </thead>
         <tbody>
@@ -60,10 +60,10 @@
             <td th:text="${e.address}"></td>
             <td th:text="${e.email}"></td>
             <td th:text="${e.supervisorname}"></td>
-            <td><a class="btn btn-sm btn-primary"
-                   th:href="@{/edit/{id}(id=${e.id})}">Update</a></a>
-                <a class="btn btn-sm btn-danger"
-                    th:href="@{/delete/{id}(id=${e.id})}">Delete</a></td>
+            <td><a class="btn btn-sm btn-white"
+                   th:href="@{/edit/{id}(id=${e.id})}"><u>Update</u></a></a>
+                <a class="btn btn-sm btn-white"
+                    th:href="@{/delete/{id}(id=${e.id})}"><u>Delete</u></a></td>
         </tr>
         </tbody>
     </table>
