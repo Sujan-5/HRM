@@ -66,4 +66,10 @@ public class ConEmployee {
         session.setAttribute("msg","Employee deleted!!!");
         return "redirect:/";
     }
+
+    @GetMapping("/login")
+    public String login(){
+
+        return "login";
+    }
 }
