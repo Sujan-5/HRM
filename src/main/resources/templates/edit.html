@@ -23,10 +23,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
+            <li class="nav-item active"><a class="nav-link" href="/">Home
+                <span class="sr-only"></span>
             </a></li>
-            <li class="nav-item active"><a class="nav-link" href="empADD">ADD</a></li>
+<!--            <li class="nav-item active"><a class="nav-link" href="empADD">ADD</a></li>-->
         </ul>
     </div>
 </nav>
@@ -52,12 +52,30 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Email</label> <input type="email" class="form-control" name="email" th:value="${employe.contact}">
+                        </div>
+
+                        <div class="form-group">
                             <label>Email</label> <input type="email" class="form-control" name="email" th:value="${employe.email}">
                         </div>
 
                         <div class="form-group">
                             <label>Supervisor name</label> <input type="text" class="form-control" name="supervisorname" th:value="${employe.supervisorname}">
                         </div>
+
+                        <div class="form-group">
+                            <label>Salary</label> <input type="text" class="form-control" name="salary" th:value="${employe.salary}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pan_Card</label> <input type="text" class="form-control" name="pancard" th:value="${employe.pancard}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Citizenship</label> <input type="file" class="form-control" name="citizen" th:value="${employe.citizen}">
+                        </div>
+
+
 
                         <button class="btn btn-primary btn-block">Edit employee</button>
                     </form>

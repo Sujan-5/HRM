@@ -1,18 +1,18 @@
 package com.hrms.Controller;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import com.hrms.Entity.EntEmployee;
 import com.hrms.Service.SerEmployee;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -23,6 +23,7 @@ public class ConEmployee {
         this.Service = Service;
     }
 
+
     @GetMapping("/")
     public String home(Model m){
         List<EntEmployee> employe = Service.getAllEmp();
@@ -30,16 +31,26 @@ public class ConEmployee {
         return "home";
     }
 
-    @GetMapping("/add")
-    public String add(){
+//    public static String uploadDirectory=System.getProperty("user.dir")+"/resources/hrmm";
+
+    @GetMapping("/empADD")
+
+    public String add(Model model){
+
         return "add";
     }
 
-    @PostMapping("/register")
-    public String regEmp(@ModelAttribute EntEmployee e, HttpSession session){
-        System.out.println(e);
+    @PostMapping ("/register")
+    public String regEmp(EntEmployee entity, HttpServletRequest request, BindingResult bindingResult, HttpSession session, @RequestParam("citizen") MultipartFile file) throws IOException {
 
-        Service.empADD(e);
+
+            String originalFilename = file.getOriginalFilename();
+            file.transferTo(new File("D:\\xamp\\HumanResourceManagement\\" + originalFilename));
+//            D:\\xamp\\HumanResourceManagement\\
+//            return "File Uploaded!";
+        System.out.println(entity);
+
+        Service.empADD(entity);
         session.setAttribute("msg","Employee Added Sucessfully!!");
 
         return "redirect:/";
@@ -69,7 +80,45 @@ public class ConEmployee {
 
     @GetMapping("/login")
     public String login(){
-
         return "login";
     }
+
+    @RequestMapping(value = "/login", method=RequestMethod.POST)
+    public String viewHomePage(ModelMap model, @RequestParam String userName, @RequestParam String password){
+        if(userName.equals("admin")&& password.equals("admin")){
+            return "home";
+        }
+        else{
+            model.put("error","Incorrect username or password");
+            return "login";
+        }
+    }
+
+    @GetMapping("/employeepage")
+    public String employeepage(Model model){
+        List<EntEmployee> listemp = Service.listAll();
+        model.addAttribute("employee", new EntEmployee());
+        return"employeepage";
+    }
+
+    @PostMapping("/search")
+    public String employeesearch(@ModelAttribute("employeeSearchFormData") EntEmployee formData, Model model ) throws Exception {
+
+//        EntEmployee entemp = Service.get(formData.getId());
+        EntEmployee entemp = Service.get(formData.getId());
+        model.addAttribute("employee", entemp);
+
+        return"employeepage";
+    }
+//
+//    @GetMapping("/leaverequest")
+//    public String leaverequest(){
+//
+//    return "leaverequest";
+//    }
+//
+//    @GetMapping("/myleaverequest")
+//    public String myleaverequest(){
+//        return "myleaverequest";
+//    }
 }

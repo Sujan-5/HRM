@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Human Resource Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+
+</head>
+
+<body>
+<nav class="navbar justify-content-between bg-dark navbar-dark h5">
+    <!-- Brand -->
+    <a class="nav-link " th:href="employeepage"> Home </a>
+    <!--    <div class="collapse navbar-collapse" id="collapsibleNavbar">-->
+<!--    <div>-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+                <!--                <a class="nav-link" th:href="@{}"> Leave Request </a>-->
+                <a class="nav-link" th:href="leaverequest"> Leave Request </a>
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+                <!--                <a class="nav-link" th:href="@{}"> My LeaveRequest </a>-->
+                <a class="navbar-brand" th:href="myleaverequest"> My LeaveRequest </a>
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+</nav>
+
+<!--<div class="container p-5">-->
+<!--    <table class="table table-striped" border="1">-->
+<!--        <thead class="bg-info text-dark">-->
+<!--        <tr>-->
+<!--            <th scope="col">ID</th>-->
+<!--            <th scope="col">Name</th>-->
+<!--            <th scope="col">From</th>-->
+<!--            <th scope="col">To</th>-->
+<!--            <th scope="col">Reason</th>-->
+<!--            <th scope="col">Leave</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each = "e : ${employe}">-->
+<!--<th th:text="${e.id}">1</th>-->
+<!--            <th th:text="${e.name}">1</th>-->
+<!--            <td th:text="${e.from}"></td>-->
+<!--            <td th:text="${e.to}"></td>-->
+<!--            <td th:text="${e.reason}"></td>-->
+<!--            <td th:text="${e.leave}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+
+<div >
+    <table  class = "table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th> ID </th>
+            <th> Name </th>
+            <th> From </th>
+            <th> To </th>
+            <th> Reason </th>
+            <th> Leave </th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody class="bg-white">
+
+        <th:block th:each="e : ${employ} ">
+            <tr>
+                <td>  [[${e.id}]] </td>
+                <td>  [[${e.name}]] </td>
+                <td>  [[${e.from}]] </td>
+                <td>  [[${e.to}]] </td>
+                <td>  [[${e.reason}]] </td>
+                <td>  [[${e.leave}]] </td>
+<!--                <td >-->
+<!--                    <a class="h4 mr-4 text-center  p-1 bg-success text-white border border-secondary rounded "-->
+<!--                       th:href="@{'/myleaverequest' + ${employ.id}}"> Edit Bill </a>-->
+<!--                    <a class="h4 mr-4 text-center  p-1 bg-primary text-white border-->
+<!--                    border-secondary rounded "-->
+<!--                       th:href="@{'/myleaverequest' + ${employ.id}}"> Invoice </a>-->
+<!--                </td>-->
+            </tr>
+
+        </th:block>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

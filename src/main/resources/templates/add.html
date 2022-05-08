@@ -8,12 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>HomePage</title>
+    <title>Employee Add</title>
 </head>
 <body>
+
 <!-- start navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="#">Human Resource Management System</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href="/">Human Resource Management System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -23,10 +24,9 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-            </a></li>
-            <li class="nav-item active"><a class="nav-link" href="empADD">ADD</a></li>
+<!--            <li class="nav-item active"><a class="nav-link" href="home">Home<span class="sr-only"></span></a></li>-->
+            <li class="nav-item active"><a class="nav-link" href="/"><u>Home</u></a></li>
+<!--            <li class="nav-item active"><a class="nav-link" href="empADD"><u>ADD Employee</u></a></li>-->
         </ul>
     </div>
 </nav>
@@ -40,25 +40,46 @@
                 <div class="card-body">
                     <h4 class="text-center text-dark">Add Employee</h4>
 
-                    <form th:action="@{/register}" method="post">
+                    <form th:action="@{/register}" method="POST" enctype="multipart/form-data">
+
+<!--                        <form th:action="@{/files}" method="POST" enctype="multipart/form-data">-->
+<!--                            <input type="file" name="file"/>-->
+<!--                            <input type="submit" value="Upload"/>-->
+<!--                        </form>-->
 
                         <div class="form-group">
-                            <label>Full Name</label> <input type="text" class="form-control" name="name">
+                            <label>Full Name</label> <input type="text" class="form-control" placeholder="Full Name" name="name">
                         </div>
 
                         <div class="form-group">
-                            <label>Address</label> <input type="text" class="form-control" name="address">
+                            <label>Address</label> <input type="text" class="form-control" placeholder="Address" name="address">
                         </div>
 
                         <div class="form-group">
-                            <label>Email</label> <input type="email" class="form-control" name="email">
+                            <label>Contact</label> <input type="number" class="form-control" placeholder="Contact Number" name="contact">
                         </div>
 
                         <div class="form-group">
-                            <label>Supervisor name</label> <input type="text" class="form-control" name="supervisorname">
+                            <label>Email</label> <input type="email" class="form-control" placeholder="Email" name="email">
                         </div>
 
-                        <button class="btn btn-primary btn-block">Add employee</button>
+                        <div class="form-group">
+                            <label>Supervisor name</label> <input type="text" class="form-control" placeholder="Supervisor name" name="supervisorname">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Salary</label> <input type="number" class="form-control" placeholder="Salary" name="salary">
+                        </div>
+
+                        <div class="form-group">
+                            <label>PanCard No.</label> <input type="number" class="form-control" placeholder="PanCard Number" name="pancard">
+                        </div>
+
+                        <div class="form-group">
+                            <label>CitizenShip</label> <input type="file" class="form-control" placeholder="CitizenShip" name="citizen">
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Save</button>
                     </form>
                 </div>
             </div>
@@ -66,6 +87,8 @@
     </div>
 </div>
 <!--end form-->
+<!--<img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Paris" class="center" >-->
+<!--<img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="img-fluid" alt="Responsive image">-->
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Human Resource Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+
+</head>
+
+
+
+<body >
+<!--navbar-expand-md-->
+<nav class="navbar justify-content-between bg-dark navbar-dark h5">
+    <!-- Brand -->
+    <a class="navbar-brand"> Home </a>
+
+                <a class="nav-link" th:href="leaverequest"> Leave Request </a>
+
+                <a class="nav-link" th:href="myleaverequest"> My LeaveRequest </a>
+
+    <!--    Search Button-->
+            <form class="form-inline p-2"  th:action="@{/search}" th:object="${employee}" method="post" >
+                <input class="form-control input-lg" th:field="*{id}" type="text"  placeholder="Search employee ID"/>
+
+                <button class="form-control mr-sm-1 btn-lg btn-success" type="submit">Search</button> </td>
+
+                <input class="form-control input-lg my-sm-0" type="button" value="clear" id="btnClear"
+                       onclick="clearSearch()" />
+            </form>
+
+</nav>
+
+
+<div >
+
+    <form>
+        <div class="col-sm-5">
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">Name: </label>
+                    <td>
+                        <input type="text" th:field="${employee.name}" class="form-control col-sm-5" placeholder="Employee Name" readonly>
+                    </td>
+                </tr>
+            </div>
+        <br>
+        <br>
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">Address: </label>
+                    <td>
+                        <input type="text" th:field="${employee.address}" class="form-control col-sm-5" placeholder="Employee Address" readonly>
+                    </td>
+                </tr>
+            </div>
+        <br>
+        <br>
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">Contact: </label>
+                    <td>
+                        <input type="text" th:field="${employee.contact}" class="form-control col-sm-5" placeholder="Contact" readonly>
+                    </td>
+                </tr>
+            </div>
+            <br>
+            <br>
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">Email: </label>
+                    <td>
+                        <input type="text col-sm-1" th:field="${employee.email}" class="form-control col-sm-5" placeholder="Employee Email" readonly>
+                    </td>
+                </tr>
+            </div>
+        <br>
+        <br>
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">Super Visor: </label>
+                    <td>
+                        <input type="text" th:field="${employee.supervisorname}" class="form-control col-sm-5" placeholder="Employee Super Visor" readonly>
+                    </td>
+                </tr>
+            </div>
+        <br>
+        <br>
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">Salary: </label>
+                    <td>
+                        <input type="number" th:field="${employee.salary}" class="form-control col-sm-5" placeholder="Employee Salary" readonly>
+                    </td>
+                </tr>
+            </div>
+        <br>
+        <br>
+            <div>
+                <tr>
+                    <label class="form-label col-sm-1">PanCard: </label>
+                    <td>
+                        <input type="number" th:field="${employee.pancard}" class="form-control" placeholder="Employee PanCard No." readonly>
+                    </td>
+                </tr>
+            </div>
+        </div>
+
+        <div>
+            <tr>
+                <label class="form-label col-sm-1">Citizen: </label>
+                <td>
+                    <input type="file" th:field="${employee.citizen}" class="form-control" placeholder="Citizenship" readonly>
+                </td>
+            </tr>
+        </div>
+<!--</div>-->
+
+
+    </form>
+
+</div>
+
+
+    </div>
+</form>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/employeepage}]]";
+    }
+</script>

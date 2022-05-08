@@ -1,10 +1,12 @@
 package com.hrms.Service;
 
 import com.hrms.Entity.EntEmployee;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.hrms.Repsitory.RepoEmployee;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,4 +38,27 @@ public class SerEmployee {
     public void delete(int id){
         emp.deleteById(id);
     }
+
+    public EntEmployee storefile(MultipartFile file) throws IOException {
+
+        String citizen = StringUtils.cleanPath(file.getOriginalFilename());
+
+            EntEmployee mp = new EntEmployee(citizen, file.getContentType(), file.getBytes());
+
+            return emp.save(mp);
+
+    }
+
+    public List<EntEmployee> listAll() {
+        return emp.findAll();
+    }
+
+    public EntEmployee get(Integer id){
+        return emp.findById(id).get();
+    }
+
+
+
 }
+
+
