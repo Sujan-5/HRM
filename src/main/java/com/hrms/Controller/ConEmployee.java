@@ -82,14 +82,27 @@ public class ConEmployee {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String viewHomePage(ModelMap model, @RequestParam String userName, @RequestParam String password) {
         if (userName.equals("admin") && password.equals("admin")) {
-            return "home";
+            return "redirect:/home";
         } else if (userName.equals("employee") && password.equals("employee")) {
-            return "employeepage";
+            return "redirect:/employeepage";
         } else {
             model.put("error", "Incorrect username or password");
             return "login";
         }
     }
+
+//    @RequestMapping(value = "/", method=RequestMethod.POST)
+//    public String viewTraf(ModelMap model, @RequestParam String userName, @RequestParam String password){
+//        if(userName.equals("admin")&& password.equals("admin")){
+//            return "redirect:/viewHomePage";
+//        }
+//        else if(userName.equals("traffic")&& password.equals("traffic")){
+//            return "redirect:/viewTraffic";
+//        }
+//        else{
+//            return "homepage";
+//        }
+//    }
 
     @GetMapping("/employeepage")
     public String employeepage(Model model) {

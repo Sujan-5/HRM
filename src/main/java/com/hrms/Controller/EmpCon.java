@@ -70,18 +70,18 @@ public class EmpCon {
         return "leaverequestadmin";
     }
 
+    @GetMapping("/aprove/{eid}")
+    public String approveemp(@PathVariable int eid, Model m) {
+        EmpEnt empllee = serv.getEById(eid);
+        m.addAttribute("empll", empllee);
+        return "approve";
+    }
+
     @PostMapping("/approve")
     public String approve(@ModelAttribute EmpEnt e, HttpSession session){
         serv.apadd(e);
         session.setAttribute("msg", "Leave Request updated!!!");
         return "/approve";
-    }
-
-    @GetMapping("/aprove/{eid}")
-    public String approveemp(@PathVariable("eid") int eid, Model m) {
-        EmpEnt empllee = serv.getEById(eid);
-        m.addAttribute("empll", empllee);
-        return "approve";
     }
 }
 

@@ -24,8 +24,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" href="/home">Home<span class="sr-only"></span></a></li>
-            <li class="nav-item brand"><a class="nav-link" href="/home">Home<span class="sr-only"></span>
-            </a></li>
+<!--            <li class="nav-item brand"><a class="nav-link" href="/approve">Home<span class="sr-only"></span>-->
+<!--            </a></li>-->
             <!--            <li class="nav-item active"><a class="nav-link" href="empADD">ADD</a></li>-->
         </ul>
     </div>
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <h4 class="text-center text-dark">Update Leave Request</h4>
 
-                    <form th:action="@{/approve}" method="post" th:object="${empll}">
+                    <form th:action="@{/approve}" method="get" th:object="${empll}">
 
                         <input type="hidden" th:value="${empll.eid}" name="eid">
                         <div class="form-group">
