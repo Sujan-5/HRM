@@ -23,7 +23,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" href="/home">Home<span class="sr-only"></span>
+            <li class="nav-item active"><a class="nav-link" href="/home">Home<span class="sr-only"></span></a></li>
             <li class="nav-item brand"><a class="nav-link" href="/home">Home<span class="sr-only"></span>
             </a></li>
             <!--            <li class="nav-item active"><a class="nav-link" href="empADD">ADD</a></li>-->
@@ -39,23 +39,23 @@
                 <div class="card-body">
                     <h4 class="text-center text-dark">Update Leave Request</h4>
 
-                    <form th:action="@{/approve}" method="post" th:object="${emplle}">
+                    <form th:action="@{/approve}" method="post" th:object="${empll}">
 
-                        <input type="hidden" th:value="${employess.eid}" name="eid">
+                        <input type="hidden" th:value="${empll.eid}" name="eid">
                         <div class="form-group">
-                            <label>Full Name</label> <input type="text" class="form-control" name="name" th:value="${employess.name}" readonly>
+                            <label>Full Name</label> <input type="text" class="form-control" name="name" th:value="${empll.name}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label>From</label> <input type="text" class="form-control" name="from" th:value="${employess.from}" readonly>
+                            <label>From</label> <input type="text" class="form-control" name="from" th:value="${empll.from}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label>To</label> <input type="text" class="form-control" name="to" th:value="${employess.to}" readonly>
+                            <label>To</label> <input type="text" class="form-control" name="to" th:value="${empll.to}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label>Reason</label> <input type="text" class="form-control" name="reason" th:value="${employess.reason}" readonly>
+                            <label>Reason</label> <input type="text" class="form-control" name="reason" th:value="${empll.reason}" readonly>
                         </div>
 
                         <div class="form-group">

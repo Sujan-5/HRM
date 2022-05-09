@@ -7,10 +7,7 @@ import com.hrms.Service.EmpSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -73,14 +70,6 @@ public class EmpCon {
         return "leaverequestadmin";
     }
 
-
-    @GetMapping("/aprove/{eid}")
-    public String approveemp(@PathVariable int eid, Model m) {
-        EmpEnt empllee = serv.getEById(eid);
-        m.addAttribute("empllee", empllee);
-        return "aprove";
-    }
-
     @PostMapping("/approve")
     public String approve(@ModelAttribute EmpEnt e, HttpSession session){
         serv.apadd(e);
@@ -88,8 +77,12 @@ public class EmpCon {
         return "/approve";
     }
 
-
-
+    @GetMapping("/aprove/{eid}")
+    public String approveemp(@PathVariable("eid") int eid, Model m) {
+        EmpEnt empllee = serv.getEById(eid);
+        m.addAttribute("empll", empllee);
+        return "approve";
+    }
 }
 
 

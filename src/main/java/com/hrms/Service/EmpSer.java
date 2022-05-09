@@ -34,8 +34,8 @@ public class EmpSer {
         rp.save(e);
     }
 
-    public EmpEnt getEById(int id) {
-        Optional<EmpEnt> e = rp.findById(id);
+    public EmpEnt getEById(int eid) {
+        Optional<EmpEnt> e = rp.findById(eid);
         if (e.isPresent()) {
             return e.get();
         }
