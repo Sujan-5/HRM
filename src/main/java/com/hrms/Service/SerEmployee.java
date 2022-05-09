@@ -42,11 +42,8 @@ public class SerEmployee {
     public EntEmployee storefile(MultipartFile file) throws IOException {
 
         String citizen = StringUtils.cleanPath(file.getOriginalFilename());
-
             EntEmployee mp = new EntEmployee(citizen, file.getContentType(), file.getBytes());
-
             return emp.save(mp);
-
     }
 
     public List<EntEmployee> listAll() {

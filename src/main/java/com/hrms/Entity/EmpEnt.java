@@ -3,13 +3,13 @@ package com.hrms.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "leaverequest")
+@Table(name = "LEAVEREQUEST")
 public class EmpEnt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
-    private int id;
+    @Column(name="EID")
+    private int eid;
 
     @Column(name = "Name")
     private String name;
@@ -26,10 +26,13 @@ public class EmpEnt {
     @Column(name = "Leave")
     private String leave;
 
+    @ManyToOne
+    private EntEmployee hrm;
 
-    public EmpEnt(int id, String name, String from, String to, String reason, String leave) {
+
+    public EmpEnt(int eid, String name, String from, String to, String reason, String leave) {
         super();
-        this.id = id;
+        this.eid = eid;
         this.name = name;
         this.from = from;
         this.to = to;
@@ -41,12 +44,12 @@ public class EmpEnt {
 
     }
 
-    public int getId() {
-        return id;
+    public int getEid() {
+        return eid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEid(int eid) {
+        this.eid = eid;
     }
 
     public String getName() {
@@ -89,10 +92,18 @@ public class EmpEnt {
         this.leave = leave;
     }
 
+    public EntEmployee getHrm() {
+        return hrm;
+    }
+
+    public void setHrm(EntEmployee hrm) {
+        this.hrm = hrm;
+    }
+
     @Override
     public String toString() {
         return "EmpEnt{" +
-                "id=" + id +
+                "id=" + eid +
                 ", name='" + name + '\'' +
                 ", from='" + from + '\'' +
                 ", to='" + to + '\'' +

@@ -1,10 +1,12 @@
 package com.hrms.Service;
 
 import com.hrms.Entity.EmpEnt;
+import com.hrms.Entity.EntEmployee;
 import com.hrms.Repsitory.EmpRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmpSer {
@@ -15,8 +17,29 @@ public class EmpSer {
         this.rp = rp;
     }
 
+    public void leaverequest(EmpEnt eent) {
+        rp.save(eent);
+    }
+
 
     public List<EmpEnt> getAllEmp() {
         return rp.findAll();
     }
+
+    public List<EmpEnt> listAll() {
+        return rp.findAll();
+    }
+
+    public void apadd(EmpEnt e) {
+        rp.save(e);
+    }
+
+    public EmpEnt getEById(int id) {
+        Optional<EmpEnt> e = rp.findById(id);
+        if (e.isPresent()) {
+            return e.get();
+        }
+        return null;
+    }
+
 }

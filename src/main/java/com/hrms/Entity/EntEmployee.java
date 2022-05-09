@@ -1,10 +1,13 @@
 package com.hrms.Entity;
 
 import javax.persistence.*;
-import java.util.Arrays;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
-@Table(name = "hrm")
+@Table(name = "HRM")
 public class EntEmployee {
 
     @Id
@@ -34,7 +37,7 @@ public class EntEmployee {
     @Column(name = "PANCARD", nullable = false)
     private int pancard;
 
-    @Column(name = "Citizenship", nullable = false)
+    @Column(name = "Citizenship")
     private String citizen;
 
     private String citizentype;
@@ -43,21 +46,23 @@ public class EntEmployee {
     private byte[] data;
 
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<EmpEnt> human = new ArrayList<>();
 
 
-//    public EntEmployee(String citizen, String citizentype, byte[] data) {
-//        this.citizen = citizen;
-//        this.citizentype = citizentype;
-//        this.data = data;
-//    }
+
+    public EntEmployee(String citizen, String citizentype, byte[] data) {
+        this.citizen = citizen;
+        this.citizentype = citizentype;
+        this.data = data;
+    }
 
 
     public EntEmployee(){
         super();
     }
 
-    public EntEmployee(String citizen, String citizentype, byte[] bytes) {
-    }
+
 
     public int getId() {
         return id;
@@ -123,28 +128,14 @@ public class EntEmployee {
         this.pancard = pancard;
     }
 
-    public String getCitizen() {
-        return citizen;
+
+
+    public List<EmpEnt> getHuman() {
+        return human;
     }
 
-    public void setCitizen(String citizen) {
-        this.citizen = citizen;
-    }
-
-    public String getCitizentype() {
-        return citizentype;
-    }
-
-    public void setCitizentype(String citizentype) {
-        this.citizentype = citizentype;
-    }
-
-    public byte[] getData() {
-        return data;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
+    public void setHuman(List<EmpEnt> human) {
+        this.human = human;
     }
 
     @Override
@@ -158,24 +149,6 @@ public class EntEmployee {
                 ", supervisorname='" + supervisorname + '\'' +
                 ", salary=" + salary +
                 ", pancard=" + pancard +
-                ", citizen='" + citizen + '\'' +
-                ", citizentype='" + citizentype + '\'' +
-                ", data=" + Arrays.toString(data) +
                 '}';
     }
-
-    //    @Override
-//    public String toString() {
-//        return "EntEmployee{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", address='" + address + '\'' +
-////                ", contact='" + contact + '\'' +
-//                ", email='" + email + '\'' +
-//                ", supervisorname='" + supervisorname + '\'' +
-//                ", salary='" + salary + '\'' +
-//                ", pancard='" + pancard + '\'' +
-//                ", citizen='" + citizen + '\'' +
-//                '}';
-//    }
 }

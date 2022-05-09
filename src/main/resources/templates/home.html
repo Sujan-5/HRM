@@ -22,12 +22,14 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav">
         <ul class="navbar-nav mr-auto">
 <!--            <li class="nav-item active"><a class="nav-link" href="home">Home-->
 <!--&lt;!&ndash;                <span class="sr-only"></span>&ndash;&gt;-->
 <!--            </a></li>-->
             <li class="nav-item active"><a class="h5 text-center p-3 mb-2 bg-info text-white border border-secondary rounded p-3" href="empADD"><u>ADD Employee</u></a></li>
+            <li class="nav-item active"><a class="nav-link" href="leaverequestadmin"><u>Leave Request</u></a></li>
+
         </ul>
     </div>
 </nav>
@@ -54,7 +56,6 @@
             <th scope="col">SuperVisor name</th>
             <th scope="col">Salary</th>
             <th scope="col">Pan Card no.</th>
-            <th scope="col">Citizenship</th>
             <th scope="col">E-D</th>
         </tr>
         </thead>
@@ -68,7 +69,6 @@
             <td th:text="${e.supervisorname}"></td>
             <td th:text="${e.salary}"></td>
             <td th:text="${e.pancard}"></td>
-            <td th:text="${e.citizen}"></td>
             <td><a class="btn btn-sm btn-white"
                    th:href="@{/edit/{id}(id=${e.id})}"><u>Update</u></a></a>
                 <a class="btn btn-sm btn-white"

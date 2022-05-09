@@ -61,40 +61,73 @@
 <!--    </div>-->
 </nav>
 
+<div th:if="${session.msg}">
+    <div class="alert alert-success" role="alert" th:text="${session.msg}">
+    </div>
+    <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+</div>
 
 
-<form >
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-center text-danger">*Once filled cannot be changed.</p>
 
-    <div class="form-group " style="margin: 5px">
-        <label>Name</label>
-        <input type="text" class="form-control col-xs-4"  placeholder="Name">
+
+<form th:action="@{/leave}" method="POST">
+
+<!--    <div class="form-group" style="margin: 5px">-->
+<!--        <label>Name</label>-->
+<!--        <input type="text" class="form-control col-xs-4"  placeholder="Name" >-->
+<!--    </div>-->
+
+    <div class="form-group" style="margin: 5px">
+        <label>Full Name</label> <input type="text" class="form-control col-xs-4" placeholder="Full Name" name="name">
     </div>
 
-
-
-    <div class="container" style="margin: 5px">
+    <div style="margin: 5px">
         <div style="position: relative">
             <label>From</label>
-            <input class="form-control" type="text" id="time"/>
+            <input class="form-control" type="text" name="from" />
         </div>
     </div>
 
-    <div class="container" style="margin: 5px">
+
+    <div style="margin: 5px">
         <div style="position: relative">
             <label>To</label>
-            <input class="form-control" type="text" id="timee"/>
+            <input class="form-control" type="text" name="to" />
         </div>
     </div>
 
 
-
-    </div>
     <div class="form-group" style="margin: 5px">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label>Reason</label>
+        <textarea class="form-control" name="reason" rows="3" ></textarea>
     </div>
+
+    <div>
+        <label>Leave Request</label>
+    <select class="form-select" aria-label="Default select example" disabled>
+        <option value="1">Approved</option>
+        <option value="2">Refuse</option>
+        <option value="3">Pending</option>
+    </select>
+    </div>
+
+    <button class="btn btn-primary btn-block">Save</button>
 
 </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
 
 </body>
 </html>
@@ -102,11 +135,11 @@
 
 
 <script>
-    $('#time').datetimepicker({
+    $("input[name='from']").datetimepicker({
         format: 'yyyy-mm-dd'
     });
 
-    $('#timee').datetimepicker({
+    $("input[name='to']").datetimepicker({
         format: 'yyyy-mm-dd'
     });
 </script>
