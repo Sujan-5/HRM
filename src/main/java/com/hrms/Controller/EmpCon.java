@@ -58,13 +58,6 @@ public class EmpCon {
         return "leaverequest";
     }
 
-//    @GetMapping("/myleaverequest")
-//    public String myleaverequest(@ModelAttribute EmpEnt en, Model m){
-//        List<EmpEnt> employ = serv.getAllEmp();
-//        m.addAttribute("employ",employ);
-//        System.out.println(en);
-//        return "myleaverequest";
-//    }
 
     @GetMapping({"/myleaverequest", "/"})
     public String myleaverequest(Model model){
@@ -75,15 +68,16 @@ public class EmpCon {
 
     @GetMapping("/leaverequestadmin")
     public String leaveadmin(Model m){
-        List<EmpEnt> emplle = serv.getAllEmp();
-        m.addAttribute("emplle",emplle);
+        List<EmpEnt> empll = serv.getAllEmp();
+        m.addAttribute("empll",empll);
         return "leaverequestadmin";
     }
 
+
     @GetMapping("/aprove/{eid}")
-    public String approveemp(@PathVariable int id, Model m) {
-        EmpEnt e = serv.getEById(id);
-        m.addAttribute("emplle", e);
+    public String approveemp(@PathVariable int eid, Model m) {
+        EmpEnt empllee = serv.getEById(eid);
+        m.addAttribute("empllee", empllee);
         return "aprove";
     }
 
@@ -93,6 +87,8 @@ public class EmpCon {
         session.setAttribute("msg", "Leave Request updated!!!");
         return "/approve";
     }
+
+
 
 }
 

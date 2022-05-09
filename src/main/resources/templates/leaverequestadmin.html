@@ -35,6 +35,33 @@
                     "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
     </script>
 </head>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="#">Human Resource Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="h5 text-center p-3 mb-2 bg-info text-white border border-secondary rounded p-3" href="empADD"><u>ADD Employee</u></a></li>
+            <li class="nav-item active"><a class="nav-link" href="leaverequestadmin"><u>Leave Request</u></a></li>
+
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
 <body class="bg-info.bg-gradient">
 
 
@@ -51,14 +78,12 @@
                 <th> To </th>
                 <th> Reason </th>
                 <th> Leave </th>
-                <th></th>
-                <th></th>
             </tr>
             </thead>
 
             <tbody class="bg-white">
             <!--        th:each="consumer : ${consumerList}-->
-            <th:block th:each="e: ${empll} ">
+            <th:block th:each="e: ${empll}">
                 <tr>
                     <td>  [[${e.eid}]] </td>
                     <td>  [[${e.name}]] </td>
@@ -66,10 +91,8 @@
                     <td>  [[${e.to}]] </td>
                     <td>  [[${e.reason}]] </td>
                     <td>  [[${e.leave}]] </td>
-                    <td >
-                        <a class="h4 mr-4 text-center  p-1 bg-success text-white border border-secondary rounded "
-                           th:href="@{/approve/{eid} (eid = ${e.eid})}"> Edit Bill </a>
-                    </td>
+                    <td ><a class="btn btn-sm btn-white"
+                           th:href="@{/approve/{eid} (id=${e.eid})}"> <u>Update</u> </a></td>
                 </tr>
 
             </th:block>
