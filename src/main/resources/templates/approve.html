@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <h4 class="text-center text-dark">Update Leave Request</h4>
 
-                    <form th:action="@{/approve}" method="get" th:object="${empll}">
+                    <form th:action="@{/approve}" method="post" th:object="${empll}">
 
                         <input type="hidden" th:value="${empll.eid}" name="eid">
                         <div class="form-group">

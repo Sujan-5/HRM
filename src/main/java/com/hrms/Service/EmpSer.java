@@ -22,9 +22,6 @@ public class EmpSer {
     }
 
 
-    public List<EmpEnt> getAllEmp() {
-        return rp.findAll();
-    }
 
     public List<EmpEnt> listAll() {
         return rp.findAll();
@@ -42,4 +39,7 @@ public class EmpSer {
         return null;
     }
 
+    public List<EmpEnt> getAlEmp() {
+        return rp.findAll();
+    }
 }

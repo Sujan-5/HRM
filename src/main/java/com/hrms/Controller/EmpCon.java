@@ -65,14 +65,14 @@ public class EmpCon {
 
     @GetMapping("/leaverequestadmin")
     public String leaveadmin(Model m){
-        List<EmpEnt> empll = serv.getAllEmp();
+        List<EmpEnt> empll = serv.getAlEmp();
         m.addAttribute("empll",empll);
         return "leaverequestadmin";
     }
 
-    @GetMapping("/aprove/{eid}")
-    public String approveemp(@PathVariable int eid, Model m) {
-        EmpEnt empllee = serv.getEById(eid);
+    @GetMapping("/aprove/{id}")
+    public String approveemp(@PathVariable int id, Model m) {
+        EmpEnt empllee = serv.getEById(id);
         m.addAttribute("empll", empllee);
         return "approve";
     }
