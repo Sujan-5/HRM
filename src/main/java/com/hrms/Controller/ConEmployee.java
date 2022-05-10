@@ -91,6 +91,18 @@ public class ConEmployee {
         }
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        return "login";
+    }
+
+    @RequestMapping("/logout")
+        public String logoutt(){
+
+            return "/login";
+        }
+
+
 //    @RequestMapping(value = "/", method=RequestMethod.POST)
 //    public String viewTraf(ModelMap model, @RequestParam String userName, @RequestParam String password){
 //        if(userName.equals("admin")&& password.equals("admin")){
@@ -120,6 +132,8 @@ public class ConEmployee {
 
         return "employeepage";
     }
+
+
 
 }
 

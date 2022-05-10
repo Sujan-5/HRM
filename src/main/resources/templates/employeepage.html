@@ -109,7 +109,9 @@
             </div>
         </div>
 
-
+<div class="text-center">
+    <button type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+</div>
 
     </form>
 
@@ -126,5 +128,9 @@
 <script type="text/javascript">
     function clearSearch() {
         window.location = "[[@{/employeepage}]]";
+    }
+
+    function logout(){
+        window.location = "[[@{/logout}]]"
     }
 </script>
